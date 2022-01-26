@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:54:37 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/25 03:21:54 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/26 00:15:47 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int		ft_printfar(const char *fmt, ...);
+int		ft_printf(const char *fmt, ...);
 void	ft_putcharar(char c, int *val);
 void	ft_putnbrar(int nb, int *val);
 void	ft_putunbrar(unsigned int nb, int *val);

@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:22:52 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/26 00:13:16 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/26 02:28:44 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ static void	ft_sendbit(int pid, char *message)
 	i = 0;
 	while (message[i])
 	{
+		// ft_printf("send : %c\n", message[i]);
 		if (message[i] == '1')
 			kill(pid, SIGUSR1);
 		else if (message[i] == '0')
 			kill(pid, SIGUSR2);
 		i++;
+		usleep(500);
 	}
 }
 
@@ -56,7 +58,7 @@ char	*ft_stob(char *str)
 	return (result);
 }
 
-static int	ft_arg_error(char *nbr, char *str)
+static int	ft_arg_error(char *nbr)
 {
 	int	i;
 
@@ -72,7 +74,6 @@ static int	ft_arg_error(char *nbr, char *str)
 
 int	main(int argc, char **argv)
 {
-	int		pid;
 	char	*message;
 
 	if (argc != 3)
@@ -80,7 +81,7 @@ int	main(int argc, char **argv)
 		ft_printf("client: invalid arguments.\n");
 		return (0);
 	}
-	if (ft_arg_error(argv[1], argv[2]))
+	if (ft_arg_error(argv[1]))
 	{
 		ft_printf("client: invalid pid.\n");
 		return (0);
