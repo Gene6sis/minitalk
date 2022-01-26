@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:22:52 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/26 02:32:32 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/26 02:34:45 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	main(int argc, char **argv)
 		ft_printf("client: invalid arguments.\n");
 		return (0);
 	}
-	if (ft_arg_error(argv[1]))
+	if (ft_arg_error(argv[1]) || ft_atoi(argv[1]) == 0)
 	{
 		ft_printf("client: invalid pid.\n");
 		return (0);
