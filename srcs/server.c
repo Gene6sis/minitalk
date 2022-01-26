@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:55:01 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/26 02:29:26 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/26 02:32:32 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,11 @@ static char ft_btoc(char *str)
 	c = 0;
 	power = 1;
 	i = ft_strlen(str) - 1;
-	// ft_printf("binaire : %s\n", str);
-	// ft_printf("decimal : %d\n", c);
 	while (i >= 0)
 	{
 		c += (str[i] - '0') * power;
 		i--;
 		power *= 2;
-		// ft_printf("decimal : %d\n", c);
 	}
 	return ((char)c);
 }

@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:22:52 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/26 02:28:44 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/26 02:32:32 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	ft_sendbit(int pid, char *message)
 	i = 0;
 	while (message[i])
 	{
-		// ft_printf("send : %c\n", message[i]);
 		if (message[i] == '1')
 			kill(pid, SIGUSR1);
 		else if (message[i] == '0')
