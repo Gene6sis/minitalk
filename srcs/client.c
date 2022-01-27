@@ -6,13 +6,13 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:22:52 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/26 02:34:45 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/27 19:21:12 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void	ft_sendbit(int pid, char *message)
+static void	ft_sendbit(int pid, unsigned char *message)
 {
 	size_t	i;
 
@@ -24,19 +24,19 @@ static void	ft_sendbit(int pid, char *message)
 		else if (message[i] == '0')
 			kill(pid, SIGUSR2);
 		i++;
-		usleep(500);
+		usleep(1500);
 	}
 }
 
-char	*ft_stob(char *str)
+unsigned char	*ft_stob(char *str)
 {
-	int		i;
-	int		j;
-	char	*result;
-	int		c;
+	int				i;
+	int				j;
+	unsigned char	*result;
+	unsigned int	c;
 
 	i = 0;
-	result = ft_calloc(ft_strlen(str) * 8 + 1, sizeof(char));
+	result = ft_calloc(ft_strlen(str) * 8 + 1, sizeof(unsigned char *));
 	if (!result)
 		return (NULL);
 	while (str[i])
@@ -73,7 +73,7 @@ static int	ft_arg_error(char *nbr)
 
 int	main(int argc, char **argv)
 {
-	char	*message;
+	unsigned char	*message;
 
 	if (argc != 3)
 	{
