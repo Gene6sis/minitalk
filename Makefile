@@ -6,7 +6,7 @@
 #    By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/25 03:08:08 by adben-mc          #+#    #+#              #
-#    Updated: 2022/01/27 19:56:54 by adben-mc         ###   ########.fr        #
+#    Updated: 2022/01/27 23:44:24 by adben-mc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CLIENT_B	=	client_bonus
 
 CC		=	gcc
 RM		=	rm -f
-CFLAGS	=	#-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra
 
 PRINTF_DIR	=	ft_printf
 PRINTF_LIB 	=	$(PRINTF_DIR)/libftprintf.a
