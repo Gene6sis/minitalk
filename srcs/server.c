@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adam <adam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:55:01 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/26 02:32:32 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/30 01:31:29 by adam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,9 @@ static void ft_signal(int signal)
 	}
 }
 
-int main()
+int main(void)
 {
-	int	pid;
-
-	pid = getpid();
-	ft_printf("PID : %d\n", pid);
+	ft_printf("PID : %d\n", getpid());
 	while (1)
 	{
 		signal(SIGUSR1, ft_signal);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adam <adam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:22:52 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/27 23:45:40 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/30 01:34:14 by adam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,7 @@ static int	ft_arg_error(char *nbr)
 
 void ft_receive(int signal)
 {
-	(void)signal;
-	ft_printf("received\n");
-}
-
-void ft_receivee (int signal)
-{
-	(void)signal;
-	ft_printf("erreurmon gars\n");
+	ft_printf("Message %d received\n", signal);
 }
 
 int	main(int argc, char **argv)
@@ -98,7 +91,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	signal(SIGUSR1, ft_receive);
-	signal(SIGUSR2, ft_receivee);
 	message = ft_stob(argv[2]);
 	ft_sendbit(ft_atoi(argv[1]), message);
 	free(message);

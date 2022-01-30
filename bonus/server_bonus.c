@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adam <adam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:55:01 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/27 23:37:37 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/01/30 01:30:37 by adam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	ft_signal(int signal, siginfo_t *info, void *context)
 		ft_printf("%c", ft_btoc(str));
 		free(str);
 		str = NULL;
+		kill(info->si_pid, SIGUSR1);
 	}
-	kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)
