@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adam <adam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:55:01 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/30 01:31:29 by adam             ###   ########.fr       */
+/*   Updated: 2022/01/30 04:52:26 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static char ft_btoc(char *str)
+static char	ft_btoc(char *str)
 {
-	int c;
-	int i;
-	int power;
+	int	c;
+	int	i;
+	int	power;
 
 	c = 0;
 	power = 1;
@@ -30,7 +30,7 @@ static char ft_btoc(char *str)
 	return ((char)c);
 }
 
-static void ft_signal(int signal)
+static void	ft_signal(int signal)
 {
 	static char	*str;
 	static int	count;
@@ -53,7 +53,7 @@ static void ft_signal(int signal)
 	}
 }
 
-int main(void)
+int	main(void)
 {
 	ft_printf("PID : %d\n", getpid());
 	while (1)

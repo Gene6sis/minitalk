@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adam <adam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:55:01 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/30 01:30:37 by adam             ###   ########.fr       */
+/*   Updated: 2022/01/30 04:50:05 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
 
-static char ft_btoc(char *str)
+static char	ft_btoc(char *str, int pidclient)
 {
-	int c;
-	int i;
-	int power;
+	int		c;
+	int		i;
+	int		power;
 
 	c = 0;
 	power = 1;
@@ -27,6 +27,8 @@ static char ft_btoc(char *str)
 		i--;
 		power *= 2;
 	}
+	if (c == 0)
+		kill(pidclient, SIGUSR1);
 	return ((char)c);
 }
 
@@ -48,10 +50,9 @@ void	ft_signal(int signal, siginfo_t *info, void *context)
 		str[count - 1] = '0';
 	if (count == 8)
 	{
-		ft_printf("%c", ft_btoc(str));
+		ft_printf("%c", ft_btoc(str, info->si_pid));
 		free(str);
 		str = NULL;
-		kill(info->si_pid, SIGUSR1);
 	}
 }
 
