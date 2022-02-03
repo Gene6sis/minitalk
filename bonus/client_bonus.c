@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:22:52 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/30 04:50:43 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/02/01 02:36:35 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_sendbit(int pid, unsigned char *message)
 		else if (message[i] == '0')
 			kill(pid, SIGUSR2);
 		i++;
-		usleep(2000);
+		usleep(150);
 	}
 }
 
@@ -98,6 +98,8 @@ int	main(int argc, char **argv)
 	}
 	signal(SIGUSR1, ft_receive);
 	message = ft_stob(argv[2]);
+	if (!message)
+		return (0);
 	message = ft_addzero(message);
 	if (!message)
 		return (0);

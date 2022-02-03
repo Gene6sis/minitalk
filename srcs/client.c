@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 22:22:52 by adben-mc          #+#    #+#             */
-/*   Updated: 2022/01/27 19:21:12 by adben-mc         ###   ########.fr       */
+/*   Updated: 2022/02/01 02:34:55 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_sendbit(int pid, unsigned char *message)
 		else if (message[i] == '0')
 			kill(pid, SIGUSR2);
 		i++;
-		usleep(1500);
+		usleep(150);
 	}
 }
 
@@ -36,7 +36,7 @@ unsigned char	*ft_stob(char *str)
 	unsigned int	c;
 
 	i = 0;
-	result = ft_calloc(ft_strlen(str) * 8 + 1, sizeof(unsigned char *));
+	result = ft_calloc(ft_strlen(str) * 8 + 9, sizeof(unsigned char *));
 	if (!result)
 		return (NULL);
 	while (str[i])
@@ -57,35 +57,46 @@ unsigned char	*ft_stob(char *str)
 	return (result);
 }
 
-static int	ft_arg_error(char *nbr)
+static unsigned char	*ft_addzero(unsigned char *message)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (nbr[i])
-	{
-		if (nbr[i] < '0' || nbr[i] > '9')
-			return (1);
+	while (message[i])
 		i++;
+	j = 0;
+	while (j < 8)
+	{
+		message[i + j] = '0';
+		j++;
 	}
-	return (0);
+	return (message);
 }
 
 int	main(int argc, char **argv)
 {
 	unsigned char	*message;
+	int				i;
 
 	if (argc != 3)
 	{
 		ft_printf("client: invalid arguments.\n");
 		return (0);
 	}
-	if (ft_arg_error(argv[1]) || ft_atoi(argv[1]) == 0)
+	i = 0;
+	while (argv[1][i])
 	{
-		ft_printf("client: invalid pid.\n");
-		return (0);
+		if (argv[1][i] < '0' || argv[1][i] > '9' || ft_atoi(argv[1]) <= 0)
+			return (0);
+		i++;
 	}
 	message = ft_stob(argv[2]);
+	if (!message)
+		return (0);
+	message = ft_addzero(message);
+	if (!message)
+		return (0);
 	ft_sendbit(ft_atoi(argv[1]), message);
 	free(message);
 	return (0);

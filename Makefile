@@ -6,35 +6,35 @@
 #    By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/25 03:08:08 by adben-mc          #+#    #+#              #
-#    Updated: 2022/01/27 23:44:24 by adben-mc         ###   ########.fr        #
+#    Updated: 2022/01/30 23:55:08 by adben-mc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS_SERVER	=	srcs/server.c
-SRCS_CLIENT	=	srcs/client.c
+SRCS_SERVER		=	srcs/server.c
+SRCS_CLIENT		=	srcs/client.c
 
 SRCS_SERVER_B	=	bonus/server_bonus.c
 SRCS_CLIENT_B	=	bonus/client_bonus.c
 
-OBJS_SERVER	= 	${SRCS_SERVER:.c=.o}
-OBJS_CLIENT	= 	${SRCS_CLIENT:.c=.o}
+OBJS_SERVER		= 	${SRCS_SERVER:.c=.o}
+OBJS_CLIENT		= 	${SRCS_CLIENT:.c=.o}
 
 OBJS_SERVER_B	= 	${SRCS_SERVER_B:.c=.o}
 OBJS_CLIENT_B	= 	${SRCS_CLIENT_B:.c=.o}
 
-SERVER	= 	server
-CLIENT	=	client
+SERVER			= 	server
+CLIENT			=	client
 
-SERVER_B	= 	server_bonus
-CLIENT_B	=	client_bonus
+SERVER_B		= 	server_bonus
+CLIENT_B		=	client_bonus
 
-CC		=	gcc
-RM		=	rm -f
-CFLAGS	=	-Wall -Werror -Wextra
+CC				=	gcc
+RM				=	rm -f
+CFLAGS			=	-Wall -Werror -Wextra -g3
 
-PRINTF_DIR	=	ft_printf
-PRINTF_LIB 	=	$(PRINTF_DIR)/libftprintf.a
-PRINTF_FLAG  =   -L ft_printf -lftprintf
+PRINTF_DIR		=	ft_printf
+PRINTF_LIB 		=	$(PRINTF_DIR)/libftprintf.a
+PRINTF_FLAG  	=   -L ft_printf -lftprintf
 
 all:		$(PRINTF_LIB) $(CLIENT) $(SERVER)
 
